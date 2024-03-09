@@ -6,6 +6,8 @@ import endpointAws, { endpointAwsParametersSchema } from "./aws/endpointAws";
 import { endpointOAIParametersSchema, endpointOai } from "./openai/endpointOai";
 import endpointLlamacpp, { endpointLlamacppParametersSchema } from "./llamacpp/endpointLlamacpp";
 import endpointOllama, { endpointOllamaParametersSchema } from "./ollama/endpointOllama";
+import endpointCodeDefender, { endpointCodeDefenderParametersSchema } from "./codedefender/endpointCodeDefender";
+import endpointCodeDefenderRAG, { endpointCodeDefenderRAGParametersSchema } from "./codedefenderRAG/endpointCodeDefenderRAG";
 
 // parameters passed when generating text
 export interface EndpointParameters {
@@ -32,6 +34,8 @@ export const endpoints = {
 	openai: endpointOai,
 	llamacpp: endpointLlamacpp,
 	ollama: endpointOllama,
+	codedefender: endpointCodeDefender,
+	codedefenderRAG: endpointCodeDefenderRAG
 };
 
 export const endpointSchema = z.discriminatedUnion("type", [
@@ -40,5 +44,7 @@ export const endpointSchema = z.discriminatedUnion("type", [
 	endpointTgiParametersSchema,
 	endpointLlamacppParametersSchema,
 	endpointOllamaParametersSchema,
+	endpointCodeDefenderParametersSchema,
+	endpointCodeDefenderRAGParametersSchema
 ]);
 export default endpoints;
